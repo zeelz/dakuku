@@ -1,0 +1,72 @@
+
+:root {
+    --brandred: #B31F2D
+}
+
+/* Added to tw config */
+body {
+    background-color: #f2f2f2;
+    /* font-family: 'Darker Grotesque', sans-serif; */
+}
+
+.meetdap {
+    background-image: url('./images/dap-lean-back.jpg');
+    background-position: center 35%;
+}
+
+.dap-podcast {
+    background-image: url('./images/dap-8.jpg');
+}
+
+.dap-video .video {
+    background-image: linear-gradient(to right, #00000057 100%, transparent), url('./images/dap-5.jpg');
+    background-position-y: 20%;
+}
+
+.heading-about {
+    background-image: linear-gradient(to right, #000000c8 100%, transparent), url('./images/dap-9.jpg');
+}
+
+.meetdap,
+.dap-podcast,
+.dap-video .video,
+.heading-about {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.wideview {
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    background: var(--brandred)
+}
+
+.wideview > div {
+    left: 0;
+    background-color: var(--brandred);
+    font-size: 1.5rem;
+    padding: 0.75rem;
+    text-align: right;
+}
+
+.slimview {
+    width: 25%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.slimview img {
+    height: 100%;
+    margin-left: -50%;
+    max-width: initial;
+}
+
+.slimview > div {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    transform-origin: bottom left;
+    rotate: -90deg;
+    translate: 100% 0;
+    text-shadow: 5px 5px 20px black;
+}

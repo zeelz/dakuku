@@ -1,0 +1,230 @@
+---
+// Layouts imports
+import Main from '../layouts/main.astro';
+// Component Imports
+import Button from '../components/Button.astro';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+
+
+
+/*
+general:
+absolute bottom-0 right-0 text-white text-right font-spacing uppercase tracking-wider
+
+// <div class="w-1/2 bg-brandred relative overflow-hidden">
+//         <img src="images/dap-1.jpg" alt="" class="">
+//         <div class="left-0 bg-brandred text-2xl p-3">Political Strategic</div>
+//     </div>
+
+
+//     <div class="w-1/4 relative overflow-x-hidden">
+//         <img src="images/dap-2.jpg" alt="" class="h-full ml-[-50%]" style="max-width: initial">
+
+//         <div class="text-xl mb-4 -rotate-90 translate-x-full translate-y-0 origin-bottom-left">Leadership Coach</div>
+
+*/
+
+// const wideview = document.querySelector('.wideview')
+// const wideviewImg = document.querySelector('.wideview img')
+// const wideviewDiv = document.querySelector('.wideview div')
+
+// wideview.classList.add('w-1/2')
+// wideview.classList.remove('w-1/4')
+// wideviewImg.classList.remove('h-full', 'ml-[-50%]')
+// wideviewDiv.classList.add('left-0', 'bg-brandred', 'text-2xl', 'p-3')
+
+// const slimviews = document.querySelectorAll('.slimview div')
+
+// slimviews.forEach(slimview => slimview.classList.add('text-xl', 'mb-4', '-rotate-90', 'translate-x-full', 'translate-y-0', 'origin-bottom-left'))
+
+// wideview.classList.add('text-xl', 'mb-4', '-rotate-90', 'translate-x-full', 'translate-y-0', 'origin-bottom-left')
+    
+---
+
+
+<Main title="Dakuku Adol Peterside | Home">
+
+	<!-- <Button>Tailwind Button in Astro!</Button>
+	<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a> -->
+
+    <section class="py-10 md:py-20 relative">
+        <div class="md:w-4/5 mx-auto px-10 md:px-0 md:flex justify-between">
+
+          <div class="md:w-1/3 flex flex-col justify-center items-start mr-2">
+            <h3 class="text-2xl font-semibold uppercase font-semibold">Dakuku PETERSIDE</h3>
+            <h1 class="text-5xl/[3rem] font-bold text-brandred">THE <br> TURNAROUND EXPERT</h1>
+            <p class="text-base py-3">DAP is passionate about helping people realize their optimal leadership potential, translating vision to concrete and amazing results.</p>
+            <a href="about.html" class="p-2 rounded ring-1 ring-brandred text-sm text-brandred hover:bg-brandred hover:text-white transition">More about DAP <span aria-hidden="true">&rarr;</span></a>
+          </div>
+  
+          <div class="hero-images md:w-2/3 flex gap-4 h-[500px]">
+
+            <div class="slimview">
+                <img src="images/dap-1.jpg" alt="" class="">
+                <div class="absolute bottom-0 right-0 text-white font-semibold font-spacing uppercase tracking-wider">Political Strategic</div>
+            </div>
+
+            <!-- <div class="w-1/2 bg-brandred relative overflow-hidden">
+                <img src="images/dap-1.jpg" alt="" class="">
+                <div class="absolute bottom-0 right-0 text-white text-right font-semibold font-spacing uppercase tracking-wider left-0 bg-brandred text-2xl p-3">Political Strategic</div>
+            </div> -->
+
+            <div class="wideview">
+                <img src="images/dap-2.jpg" alt="" class="">
+                <div class="absolute bottom-0 right-0 text-white font-semibold font-spacing uppercase tracking-wider">Leadership Coach</div>
+            </div>
+            <div class="slimview">
+                <img src="images/dap-3.jpg" alt="" class="">
+                <div class="absolute bottom-0 right-0 text-white font-semibold font-spacing uppercase tracking-wider">Leadership Coach</div>
+            </div>
+            <!-- <div class="w-1/4 relative overflow-x-hidden">
+                <img src="images/dap-3.jpg" alt="" class="h-full ml-[-50%]" style="max-width: initial">
+                <div class="absolute bottom-0 right-0 text-white text-left font-semibold font-spacing uppercase tracking-wider text-xl mb-4 -rotate-90 translate-x-full translate-y-0 origin-bottom-left">Leadership Coach</div>
+            </div> -->
+            
+          </div>
+        </div>
+            
+      </section>
+
+      <div class="flex justify-center">
+        <img src="images/arrow-down.png" alt="" class="animate-bounce">
+      </div>
+
+      <section class="py-10 md:py-40 my-10 meetdap">
+        <div class="md:w-4/5 mx-auto">
+            <div class="w-2/5">
+                <h2 class="text-4xl font-semibold text-white">Meet<span class="text-brandred uppercase font-bold">Dakuku</span></h2>
+                <p class="text-base text-red-50 leading-8 py-4">As a people-driven leader, DAP is passionate about helping people realize their optimal leadership potential, translating vision to concrete and amazing results. Spent 20 years in public sector serving at all levels and two arms of government in Nigeria with outstanding results that is acknowledged nationally and globally. Over these years he has developed unique understanding of public sector in developing countries and have helped organizations and individuals navigate the terrain and turn</p>
+
+                <div class="hidden__ md:flex">
+                    <a href="#" class="bg-brandred text-sm text-white font-semibold leading-6 px-3 py-2 md:px-5 md:py-2 rounded uppercase hover:bg-transparent hover:text-brandred hover:ring-brandred hover:ring-1 hover:transition">Diary of Dakuku <span aria-hidden="true">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+      </section>
+
+    <section class="py-10 featured-on">
+        <div class="md:w-4/5 mx-auto">
+            <h3 class="text-2xl font-semibold uppercase text-center text-brandred tracking-wider py-2">As featured on</h3>
+            <div class="flex justify-between border-y py-8 my-8">
+                <a href="#" class="rounded hover:ring-1 hover:ring-brandred transition duration-300 ease-in-out p-3">
+                    <img src="./images/forbes.png" alt="" class="h-[30px]">
+                </a>
+                <a href="#" class="rounded hover:ring-1 ring-brandred  transition duration-300 ease-in-out p-3">
+                    <img src="./images/ny-times.png" alt="" class="h-[40px]">
+                </a>
+                <a href="#" class="rounded hover:ring-1 ring-brandred  transition duration-300 ease-in-out p-3">
+                    <img src="./images/the-economist.png" alt="" class="h-[45px]">
+                </a>
+                <a href="#" class="rounded hover:ring-1 ring-brandred  transition duration-300 ease-in-out p-3">
+                    <img src="./images/yahoo-finance.png" alt="" class="h-[40px]">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-10 dap-personalities">
+        <h3 class="text-2xl font-semibold text-brandred uppercase text-center mb-12">One Man, Many Personalities</h3>
+        <div class="md:w-3/5 mx-auto flex gap-x-4">
+            <div class="group w-1/3 relative overflow-hidden rounded-3xl border-b border-b-4 border-b-brandred filter shadow-2xl transition-all hover:-translate-y-2">
+                <img src="images/dap-7.jpg" alt="" class="h-full grayscale group-hover:grayscale-0">
+                <div class="absolute bottom-0 scale-y-0 group-hover:scale-100 origin-bottom-left transition duration-300 delay-300__ left-0 right-0 h-[100px] bg-[#00000075]">
+                    <p class="text-xl text-white p-3">Lorem ipsum dolor sit amet consectetur.</p>
+                </div>
+            </div>
+            <div class="group w-1/3 relative overflow-hidden rounded-3xl border-b border-b-4 border-b-brandred filter shadow-2xl transition-all hover:-translate-y-2">
+                <img src="images/dap-6.jpg" alt="" class="h-full grayscale group-hover:grayscale-0">
+                <div class="absolute bottom-0 scale-y-0 group-hover:scale-100 origin-bottom-left transition duration-300 delay-300__ left-0 right-0 h-[100px] bg-[#00000075]">
+                    <p class="text-xl text-white p-3">Lorem ipsum dolor sit amet consectetur.</p>
+                </div>
+            </div>
+            <div class="group w-1/3 relative overflow-hidden rounded-3xl border-b border-b-4 border-b-brandred filter shadow-2xl transition-all hover:-translate-y-2">
+                <img src="images/dap-5.jpg" alt="" class="h-full grayscale group-hover:grayscale-0">
+                <div class="absolute bottom-0 scale-y-0 group-hover:scale-100 origin-bottom-left transition duration-300 delay-300__ left-0 right-0 h-[100px] bg-[#00000075]">
+                    <p class="text-xl text-white p-3">Lorem ipsum dolor sit amet consectetur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-10 dap-strategic-book">
+        <div class="md:w-4/5 mx-auto flex gap-x-8">
+            <div class="w-1/2">
+                <img src="images/strategic-turnaround-book.png" alt="strategic-turnaround-book" class="animate-pulse">
+            </div>
+            <div class="w-1/2 flex flex-col justify-center items-start mx-12">
+                <h3 class="text-2xl font-semibold uppercase">STORY OF A GOVERNMENT AGENCY</h3>
+                <h2 class="text-4xl text-brandred uppercase my-2 font-bold">Strategic Turnaround</h2>
+                <p class="text-base pb-2">"Strategic Turnaround is the definitive case study of the radical reform of the Nigerian Maritime Administration and Safety Agency (NIMASA), and of the entire maritime sector in Nigeria. But this story of how strategic change was initiated, instigated and successfully managed has relevance far outside Nigeria. Given Nigeria's size and NIMASA's importance, it is a key case study in successful high-level change management, and also an essential insight into the maritime sector of an emerging maritime power."</p>
+                <p class="font-semibold leading-4 italic">Chris Bellamy, <br> Professor Emeritus of Maritime Security University of Greenwich</p>
+                <div class="mt-6">
+                    <a href="https://www.amazon.com/Strategic-Turnaround-Story-Government-Agency/dp/9785800881" target="_blank" class="bg-brandred text-sm text-white font-semibold leading-6 px-3 py-2 md:px-5 md:py-2 mr-2 my-4 rounded uppercase hover:bg-transparent hover:text-brandred hover:ring-brandred hover:ring-1 hover:transition">Buy on Amazon <span aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a href="https://guardian.ng/art/in-strategic-turnaround-peterside-harps-on-due-diligence/" target="_blank" class="hover:bg-brandred text-sm hover:text-white font-semibold leading-6 px-3 py-2 md:px-5 md:py-2 mr-2 my-4 rounded uppercase text-brandred ring-brandred ring-1 hover:transition">Book Review <span aria-hidden="true">&rarr;</span>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-10 md:py-40 dap-podcast">
+        <div class="md:w-4/5 mx-auto">
+            <div class="w-1/2">
+                <h3 class="text-2xl font-semibold text-brandred uppercase">Listen Now</h3>
+                <h2 class="text-4xl text-brandred font-bold uppercase">Diary of Dakuku</h2>
+                <div class="flex justify-between__ gap-x-8 mt-8">
+                    <a href="#" class="text-base hover:font-semibold">
+                        <img src="images/spotify-icon.png" alt="" class="inline h-[40px]">
+                        <span>Spotify</span>
+                    </a>
+                    <a href="#" class="text-base hover:font-semibold">
+                        <img src="images/Podcasts_iOS.png" alt="" class="inline h-[40px]">
+                        <span>Apple Podcast</span>
+                    </a>
+                    <a href="#" class="text-base hover:font-semibold">
+                        <img src="images/Google_Podcasts_icon.png" alt="" class="inline h-[40px]">
+                        <span>Google Podcast</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-10 md:py-40 dap-video">
+        <div class="md:w-4/5 mx-auto">
+            <h3 class="text-2xl font-semibold text-brandred text-center uppercase mb-8">DAP through the lens</h3>
+            <div class="video w-3/5 mx-auto h-[400px] flex justify-center items-center bg-[var(--brandred)] rounded-3xl">
+                <a href="https://www.youtube.com/watch?v=1oHy0nbldEY" target="_blank" title="Watch video" class="h-[50px] transition hover:h-[65px] hover:transition duration-300">
+                    <img src="images/video-icon.png" alt="" class="h-full">
+                </a>
+                
+            </div>
+        </div>
+    </section>
+
+	<script>
+		// Hover function
+		const heroImages = document.querySelectorAll('.hero-images  > div')
+		heroImages.forEach((el, index, els) => {
+			el.addEventListener('mouseenter', (e) => {
+				els.forEach(d => {
+					d.classList.remove('wideview')
+					d.classList.add('slimview')
+				})
+				
+				e.target.classList.add('duration-500')
+				e.target.classList.add('transition-all')
+				e.target.classList.add('wideview')
+				e.target.classList.remove('slimview')
+			})
+			
+			// el.addEventListener('mouseleave', (e) => {})
+			
+		})
+	</script>
+</Main>

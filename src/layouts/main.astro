@@ -1,0 +1,136 @@
+---
+const { title } = Astro.props;
+import '../css/custom.css'
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/images/DAP-LOGO-WHITE.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;600;700&display=swap" rel="stylesheet">
+
+	</head>
+
+	<body>
+		<!-- menu -->
+
+		<section class="md:w-4/5 mx-auto">
+			<header class="z-50 border-b ">
+			  <nav class="flex items-center gap-x-8 py-4" aria-label="DAP">
+	
+				<div class="">
+				  <a href="#" class="-m-1.5 p-1.5">
+					<span class="sr-only">DAP</span>
+					<img class="h-8 md:h-10 w-auto" src="images/DAP-LOGO-BLACK.png" alt="">
+				  </a>
+				</div>
+	
+				<div class="flex hidden">
+				  <button id="hamburger" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+					<span class="sr-only">Open main menu</span>
+					<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+					  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+					</svg>
+				  </button>
+				</div>
+	
+				<div class="hidden lg:flex ml-auto lg:gap-x-4">
+					<a href="#" class="text-sm text-brandred uppercase font-semibold leading-6 text-brandred">Home</a>
+					<a href="about.html" class="text-sm text-brandred uppercase font-semibold leading-6 text-gray-900 hover:text-brandred">Diary of Dakuku</a>
+					<a href="#" class="text-sm text-brandred uppercase font-semibold leading-6 text-gray-900 hover:text-brandred">Media</a>
+					<a href="#" class="text-sm text-brandred uppercase font-semibold leading-6 text-gray-900 hover:text-brandred">CSR</a>
+					<a href="#" class="text-sm text-brandred uppercase font-semibold leading-6 text-gray-900 hover:text-brandred">Blog</a>
+					<a href="#" class="text-sm text-brandred uppercase font-semibold leading-6 text-gray-900 hover:text-brandred">Contacts</a>
+				</div>
+	
+				<div class="hidden__ md:flex">
+				  <a href="#" class="bg-brandred text-sm text-white font-semibold leading-6 px-3 py-2 md:px-5 md:py-2 rounded uppercase hover:bg-transparent hover:text-brandred hover:ring-brandred hover:ring-1 hover:transition">Book DAP <span aria-hidden="true" class="">&rarr;</span></a>
+				</div>
+	
+	
+				<!-- hamburger handle -->
+				<!-- <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+					<span class="sr-only">Open main menu</span>
+					<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+					  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+				</button> -->
+	
+	
+			  </nav>
+	
+			  <!-- Mobile menu, show/hide based on menu open state. -->
+			  <div id="menuHandle" class="hidden" role="dialog" aria-modal="true">
+				
+				<!-- Background backdrop, show/hide based on slide-over state. -->
+				<div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+				  <div class="flex items-center justify-between">
+					<a href="#" class="-m-1.5 p-1.5">
+					  <span class="sr-only">DAP</span>
+					  <img class="h-8 w-auto" src="images/DAP-LOGO-BLACK.png" alt="">
+					</a>
+					<button id="closeMenu" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+					  <span class="sr-only">Close menu</span>
+					  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+					  </svg>
+					</button>
+				  </div>
+				  <div class="mt-6 flow-root">
+					<div class="-my-6 divide-y divide-gray-500/10">
+					  <div class="space-y-2 py-6">
+						<a href="#" class="-mx-3 block rounded px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Dairy of Dakuku</a>
+					  </div>
+					  <div class="py-6">
+						<a href="#" class="-mx-3 block rounded-md px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Book DAP</a>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			  
+			</header>
+		</section>
+		<slot />
+		<section class="py-10 md:py-20 dap-socials bg-[#ffddaa]">
+			<h3 class="text-2xl font-semibold text-black text-center uppercase">Connect with DAP on social media</h3>
+			<div class="flex justify-center gap-x-4 mt-8">            
+				<a href="#" class="w-[50px] h-[50px] bg-brandred rounded-full p-3 hover:p-[.6rem]">
+					<img src="images/linkedin-icon.png" alt="" class="">
+				</a>
+				<a href="#" class="w-[50px] h-[50px] bg-brandred rounded-full p-3 hover:p-[.6rem]">
+					<img src="images/twitter-icon.png" alt="" class="">
+				</a>
+				<a href="#" class="w-[50px] h-[50px] bg-brandred rounded-full p-3 hover:p-[.6rem]">
+					<img src="images/instagram-icon.png" alt="" class="">
+				</a>
+				<a href="#" class="w-[50px] h-[50px] bg-brandred rounded-full p-3 hover:p-[.6rem]">
+					<img src="images/facebook-icon.png" alt="" class="">
+				</a>
+			</div>
+		</section>
+	
+		<footer class="py-10 md:py-20 dap-footer bg-[#1f1f1f]">
+			<div class="md:w-4/5 mx-auto">
+				<div class="flex justify-center gap-x-8 mb-4">
+					<img class="h-6 md:h-8 mr-auto" src="images/DAP-LOGO-WHITE.png">
+					<a href="#" class="text-sm text-gray-500 uppercase hover:underline hover:transition-all">Home</a>
+					<a href="#" class="text-sm text-gray-500 uppercase hover:underline hover:transition-all">Diary of Dakuku</a>
+					<a href="#" class="text-sm text-gray-500 uppercase hover:underline hover:transition-all">Media</a>
+					<a href="#" class="text-sm text-gray-500 uppercase hover:underline hover:transition-all">CSR</a>
+					<a href="#" class="text-sm text-gray-500 uppercase hover:underline hover:transition-all">Blog</a>
+					<a href="#" class="text-sm text-gray-500 uppercase hover:underline hover:transition-all">Contacts</a>
+				</div>
+				<p class="text-base text-gray-500 border-t border-gray-800 py-4">Copyright 2023. All Rights Reversed</p>
+				
+			</div>
+		</footer>
+	
+	</body>
+</html>

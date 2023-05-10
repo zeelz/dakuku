@@ -1,0 +1,25 @@
+{
+  "name": "Dakuku Adol Peterside - DAP",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "push": "./push.sh",
+    "deploy": "ssh u1029-ksaosf26iigg@ssh.dakukupeterside.com -p18765 && cd www/dakukupeterside.com/public_html && cat custom.css"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^0.19.1",
+    "@astrojs/tailwind": "^3.1.2",
+    "@types/canvas-confetti": "^1.6.0",
+    "astro": "^2.4.1",
+    "autoprefixer": "^10.4.14",
+    "canvas-confetti": "^1.6.0",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.2"
+  }
+}
