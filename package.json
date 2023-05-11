@@ -10,7 +10,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "push": "./push.sh",
-    "deploy": "./deploy.sh"
+    "ssh": "./ssh.sh"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.1",
