@@ -173,7 +173,7 @@ import Main from "../layouts/main.astro";
         const url = 'https://dakukupeterside.com/articles/wp-json/wp/v2/posts?_embed&per_page=3&page=1'
         fetch(url)
             .then(res => res.json())
-            .then(({data}) => {
+            .then((data) => {
                 // for(let i = 0; i < posts.length; i++){
 
                 //     console.log(posts[i].categories);
