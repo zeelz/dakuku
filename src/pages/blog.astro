@@ -169,29 +169,10 @@ import Main from "../layouts/main.astro";
         </div>
     </section>
 
-    <!-- glider slider -->
-    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
-    <script>
-        var glide07 = new Glide('.glide-08', {
-            type: 'slider',
-            focusAt: 'center',
-            perView: 1,
-            autoplay: 3500,
-            animationDuration: 700,
-            gap: 0,
-            classes: {
-                activeNav: '[&>*]:bg-brandred',
-            },
-        });
-
-        glide07.mount();
-    </script>
-    <!-- End Testimonial slider -->
-
     <script>
         const url = 'https://dakukupeterside.com/articles/wp-json/wp/v2/posts?_embed&per_page=3&page=1'
         fetch(url)
-            .then(res => res?.json())
+            .then(res => res.json())
             .then(({data}) => {
                 // for(let i = 0; i < posts.length; i++){
 
