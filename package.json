@@ -10,7 +10,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "push": "./push.sh",
-    "deploy": "ssh u1029-ksaosf26iigg@ssh.dakukupeterside.com -p18765 && cd www/dakukupeterside.com/public_html && cat custom.css"
+    "deploy": "./deploy.sh"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.1",
