@@ -27,10 +27,14 @@ body {
     background-image: linear-gradient(to right, #000000c8 100%, transparent), url('/images/dap-9.jpg');
 }
 
+.heading-blog {
+    background-image: linear-gradient(to right, #000000c8 100%, transparent), url('/images/dap-blog-header.jpg');
+}
 .meetdap,
 .dap-podcast,
 .dap-video .video,
-.heading-about {
+.heading-about,
+.heading-blog {
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -70,3 +74,13 @@ body {
     translate: 100% 0;
     text-shadow: 5px 5px 20px black;
 }
+
+.blog-truncate-body__ {
+    overflow:hidden;
+    max-height: calc(2.5 * 1); /* calc(line-height * the number of the line we want to ignore); */
+    line-height: 2.5rem;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    text-overflow: ellipsis;
+    display: box;
+  }
