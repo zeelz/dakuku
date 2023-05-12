@@ -22,12 +22,12 @@ const getFirstCategory = (categories, postCategory) => {
 
 
 <Main>
-    <section class="heading-blog py-10 md:py-40 relative bg-[#00000090]">
+    <section class="heading-blog py-12 md:py-40 relative bg-[#00000090]">
         <div class="md:w-4/5 mx-auto px-10 md:px-0 md:flex justify-between">
 
             <div class="md:w-3/5 mx-auto flex flex-col justify-center item-start">
-                <h2 class="text-4xl text-center font-semibold text-white uppercase">DAP Blog</h2>
-                <p class="text-xl text-center text-gray-300 leading-8 py-3">Pennings and Musing by Dakuku Peterside</p>
+                <h2 class="text-5xl text-center font-semibold text-white uppercase">DAP Blog</h2>
+                <p class="text-2xl text-center text-gray-300 leading-8 py-3">Pennings and Musing by Dakuku Peterside</p>
             </div>
         </div>
   
@@ -55,8 +55,8 @@ const getFirstCategory = (categories, postCategory) => {
                         <div class="duration">5mins Read</div>
                     </div>
                     <a href={post.link} class="group">
-                        <div class="mb-2 group-hover:underline group-hover:text-brandred">
-                            <h2 class="text-2xl font-semibold">{post.title.rendered}</h2>
+                        <div class="mb-2 h-[60px] group-hover:underline group-hover:text-brandred">
+                            <h2 class="text-2xl">{post.title.rendered}</h2>
                         
                         </div>
                         <p class="text-base" set:html={post.excerpt.rendered}></p>
