@@ -1,6 +1,32 @@
 ---
+import postcss from "postcss";
 import Main from "../layouts/main.astro";
 
+const postsss: object[] = [
+    {
+        title: "Lagos no be overhype o. Lorem ipsum dolor sit amet Lorem ipsum dolor sit."
+    },
+    {
+        title: "Coming to Canda is near. Lorem ipsum dolor sit amet Lorem ipsum dolor sit."
+    },
+    {
+        title: "The Nigerian Government today m dolor sit."
+    }
+];
+
+const url = 'https://dakukupeterside.com/articles/wp-json/wp/v2/posts?_embed&per_page=9'
+// &page=1
+const response = await fetch(url)
+const posts: any[] = await response.json()
+
+const categoriesUrl = 'https://dakukupeterside.com/articles/wp-json/wp/v2/categories'
+const resp = await fetch(categoriesUrl)
+const categories: any[] = await resp.json()
+
+const getFirstCategory = (categories, postCategory) => {
+    const category = categories.find(i => i.id === postCategory[0])
+    return category ? category.name : ''
+}
 ---
 
 
@@ -17,132 +43,59 @@ import Main from "../layouts/main.astro";
     </section>
 
     <section class="py-10 md:py-20 relative">
-        <div class="md:w-4/5 mx-auto flex gap-x-8">
-            <div class="w-1/3">
-                <div class="h-[250px] overflow-hidden rounded">
-                    <img src="/images/dap-3.jpg" alt="" class="">
-                </div>
-                <div class="flex justify-between bg-brandred text-white my-2 p-2 rounded">
-                    <div class="category flex items-center gap-x-2">
-                        <span class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+        <div class="md:w-4/5 mx-auto flex flex-wrap wrap gap-x-8">
+            { posts?.map((post) => (
+                <div class="w-[calc(100%/3-4rem/3)] mb-12">
+                    <!-- calc allows for gap-x -->
+                    <div class="h-[250px] overflow-hidden rounded">
+                        
+                        <img src={post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia']['0'].source_url} alt="" class="">
+                        
+                    </div>
+                    <div class="flex justify-between bg-brandred text-white my-2 p-2 rounded">
+                        <div class="category flex items-center gap-x-2">
+                            <span class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+                                </svg>
+                            </span>
+                            <span>{ getFirstCategory(categories, post.categories) }</span>
+                        </div>
+                        <div class="duration">5mins Read</div>
+                    </div>
+                    <a href={post.link} class="group">
+                        <div class="mb-2 h-[75px] group-hover:underline">
+                            <h2 class="text-2xl font-semibold">{post.title.rendered}</h2>
+                        
+                        </div>
+                        <p class="text-base">{post.excerpt.rendered}</p>
+                    </a>
+                    <div class="flex justify-between ring-1 ring-brandred mt-2 p-2 rounded">
+                        <div class="flex items-center gap-x-2">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                </svg>
+                                
+                            </span>
+                            <span>{post._embedded.author[0].name}</span>
+                        </div>
+                        <div class="flex items-center gap-x-2">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
                             </svg>
-                        </span>
-                        <span>Economy</span>
+                            </span>
+                            {
+                                new Date(post.date).toDateString()
+                                // ('Y m d')
+                                // .getDate().toString().padStart(2, '0')
+                            }
+                        </div>
                     </div>
-                    <div class="duration">5mins Read</div>
-                </div>
-                <a href="#" class="group">
-                    <div class="mb-2 h-[75px] group-hover:underline">
-                        <h2 class="text-2xl font-semibold">The Nigerian Government today Lorem ipsum dolor sit amet Lorem ipsum dolor sit. .</h2>
-                    </div>
-                    <p class="text-base blog-truncate-body">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium repellat, earum molestias ea eaque et dicta assumenda Lorem ipsum dolor sit.</p>
-                </a>
-                <div class="flex justify-between ring-1 ring-brandred mt-2 p-2 rounded">
-                    <div class="flex items-center gap-x-2">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                              </svg>
-                              
-                        </span>
-                        <span>Dakuku Peterside</span>
-                    </div>
-                    <div class="flex items-center gap-x-2">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
-                          </svg>
-                          </span>
-                        April 25, 2023
-                    </div>
-                </div>
 
-            </div>
+                </div>
+            ))}
 
-            <div class="w-1/3">
-                <div class="h-[250px] overflow-hidden rounded">
-                    <img src="/images/dap-3.jpg" alt="" class="">
-                </div>
-                <div class="flex justify-between bg-brandred text-white my-2 p-2 rounded">
-                    <div class="category flex items-center gap-x-2">
-                        <span class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                            </svg>
-                        </span>
-                        <span>Economy</span>
-                    </div>
-                    <div class="duration">5mins Read</div>
-                </div>
-                <a href="#" class="group">
-                    <div class="mb-2 h-[75px] group-hover:underline">
-                        <h2 class="text-2xl font-semibold">The Nigerian Government today Lorem ipsum dolor sit amet Lorem ipsum dolor sit. .</h2>
-                    </div>
-                    <p class="text-base">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium repellat, earum molestias ea eaque et dicta assumenda...</p>
-                </a>
-                <div class="flex justify-between ring-1 ring-brandred mt-2 p-2 rounded">
-                    <div class="flex items-center gap-x-2">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                              </svg>
-                              
-                        </span>
-                        <span>Dakuku Peterside</span>
-                    </div>
-                    <div class="flex items-center gap-x-2">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
-                          </svg>
-                          </span>
-                        April 25, 2023
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="w-1/3">
-                <div class="h-[250px] overflow-hidden rounded">
-                    <img src="/images/dap-3.jpg" alt="" class="">
-                </div>
-                <div class="flex justify-between bg-brandred text-white my-2 p-2 rounded">
-                    <div class="category flex items-center gap-x-2">
-                        <span class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                            </svg>
-                        </span>
-                        <span>Economy</span>
-                    </div>
-                    <div class="duration">5mins Read</div>
-                </div>
-                <a href="#" class="group">
-                    <div class="mb-2 h-[75px] group-hover:underline">
-                        <h2 class="text-2xl font-semibold">The Nigerian Government today Lorem ipsum dolor sit amet Lorem ipsum dolor sit. .</h2>
-                    </div>
-                    <p class="text-base">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium repellat, earum molestias ea eaque et dicta assumenda...</p>
-                </a>
-                <div class="flex justify-between ring-1 ring-brandred mt-2 p-2 rounded">
-                    <div class="flex items-center gap-x-2">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                              </svg>
-                              
-                        </span>
-                        <span>Dakuku Peterside</span>
-                    </div>
-                    <div class="flex items-center gap-x-2">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
-                          </svg>
-                          </span>
-                        April 25, 2023
-                    </div>
-                </div>
-
-            </div>
         </div>
     </section>
 
@@ -168,24 +121,5 @@ import Main from "../layouts/main.astro";
             </div>
         </div>
     </section>
-
-    <script>
-        const url = 'https://dakukupeterside.com/articles/wp-json/wp/v2/posts?_embed&per_page=3&page=1'
-        fetch(url)
-            .then(res => res.json())
-            .then((data) => {
-                // for(let i = 0; i < posts.length; i++){
-
-                //     console.log(posts[i].categories);
-                //     const date = new Date(posts[i].date)
-                //     const paddedDate = date.getDate().toString().padStart(2, 0)
-                //     const img = posts[i]._embedded['wp:featuredmedia']['0'].source_url
-
-                //     postsContainer.appendChild(blogCard(paddedDate, months[date.getMonth()], posts[i].title.rendered, posts[i].excerpt.rendered, img, posts[i].link))
-                // };
-                
-                console.log(data)
-            })
-    </script>
-
+            
 </Main>
