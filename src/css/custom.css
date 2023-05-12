@@ -5,7 +5,7 @@
 
 /* Added to tw config */
 body {
-    background-color: #f2f2f2;
+    background-color: #f8f8f8;
     /* font-family: 'Darker Grotesque', sans-serif; */
 }
 
@@ -30,11 +30,22 @@ body {
 .heading-blog {
     background-image: linear-gradient(to right, #000000c8 100%, transparent), url('/images/dap-blog-header.jpg');
 }
+.heading-contacts {
+    background-image: linear-gradient(to right, #000000c8 100%, transparent), url('/images/dap-11.jpeg');
+    background-position-y: 20%;
+}
+
+.heading-gallery{
+    background-image: linear-gradient(to right, #000000c8 100%, transparent), url('/images/dap-12.jpg');
+    background-position-y: 30%;
+}
 .meetdap,
 .dap-podcast,
 .dap-video .video,
 .heading-about,
-.heading-blog {
+.heading-blog,
+.heading-contacts,
+.heading-gallery {
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -83,4 +94,8 @@ body {
     -webkit-line-clamp: 5;
     text-overflow: ellipsis;
     display: box;
-  }
+}
+
+.scale20:hover {
+    scale: 125%;
+}
