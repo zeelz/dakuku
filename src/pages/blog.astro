@@ -2,18 +2,6 @@
 import postcss from "postcss";
 import Main from "../layouts/main.astro";
 
-const postsss: object[] = [
-    {
-        title: "Lagos no be overhype o. Lorem ipsum dolor sit amet Lorem ipsum dolor sit."
-    },
-    {
-        title: "Coming to Canda is near. Lorem ipsum dolor sit amet Lorem ipsum dolor sit."
-    },
-    {
-        title: "The Nigerian Government today m dolor sit."
-    }
-];
-
 const url = 'https://dakukupeterside.com/articles/wp-json/wp/v2/posts?_embed&per_page=9'
 // &page=1
 const response = await fetch(url)
@@ -41,10 +29,6 @@ const getFirstCategory = (categories, postCategory) => {
                 <h2 class="text-4xl text-center font-semibold text-white uppercase">DAP Blog</h2>
                 <p class="text-xl text-center text-gray-300 leading-8 py-3">Pennings and Musing by Dakuku Peterside</p>
             </div>
-            <p class="text-white text-2xl">{
-                '<p>foo bar [&hellip;]</p>'.replace('[&hellip;]', '&hellip;') 
-                
-            }</p>
         </div>
   
     </section>
