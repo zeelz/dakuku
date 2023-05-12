@@ -19,6 +19,8 @@ const url = 'https://dakukupeterside.com/articles/wp-json/wp/v2/posts?_embed&per
 const response = await fetch(url)
 const posts: any[] = await response.json()
 
+const ellp = posts[0].excerpt.rendered.replace('[&hellip;]', '&hellip;')
+
 const categoriesUrl = 'https://dakukupeterside.com/articles/wp-json/wp/v2/categories'
 const resp = await fetch(categoriesUrl)
 const categories: any[] = await resp.json()
@@ -27,6 +29,7 @@ const getFirstCategory = (categories, postCategory) => {
     const category = categories.find(i => i.id === postCategory[0])
     return category ? category.name : ''
 }
+
 ---
 
 
@@ -38,6 +41,10 @@ const getFirstCategory = (categories, postCategory) => {
                 <h2 class="text-4xl text-center font-semibold text-white uppercase">DAP Blog</h2>
                 <p class="text-xl text-center text-gray-300 leading-8 py-3">Pennings and Musing by Dakuku Peterside</p>
             </div>
+            <p class="text-white text-2xl">{
+                '<p>foo bar [&hellip;]</p>'.replace('[&hellip;]', '&hellip;') 
+                
+            }</p>
         </div>
   
     </section>
@@ -64,11 +71,11 @@ const getFirstCategory = (categories, postCategory) => {
                         <div class="duration">5mins Read</div>
                     </div>
                     <a href={post.link} class="group">
-                        <div class="mb-2 h-[75px] group-hover:underline group-hover:text-brandred">
+                        <div class="mb-2 group-hover:underline group-hover:text-brandred">
                             <h2 class="text-2xl font-semibold">{post.title.rendered}</h2>
                         
                         </div>
-                        <p class="text-base">{post.excerpt.rendered}</p>
+                        <p class="text-base" set:html={post.excerpt.rendered}></p>
                     </a>
                     <div class="flex justify-between ring-1 ring-brandred mt-2 p-2 rounded">
                         <div class="flex items-center gap-x-2">
@@ -86,9 +93,7 @@ const getFirstCategory = (categories, postCategory) => {
                             </svg>
                             </span>
                             {
-                                new Date(post.date).toDateString()
-                                // ('Y m d')
-                                // .getDate().toString().padStart(2, '0')
+                                new Date(post.date).toLocaleDateString('default', {month: 'short',year: 'numeric',day: 'numeric'})
                             }
                         </div>
                     </div>
