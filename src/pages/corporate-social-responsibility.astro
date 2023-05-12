@@ -1,0 +1,72 @@
+---
+import Main from "../layouts/main.astro";
+
+---
+
+
+<Main>
+    <section class="heading-csr md:py-40 relative bg-[#00000090]">
+        <div class="md:w-4/5 mx-auto px-10 md:px-0 md:flex justify-between">
+
+            <div class="md:w-3/5 mx-auto flex flex-col justify-center item-start">
+                <h2 class="text-4xl text-center font-semibold text-white uppercase">Hope for Humanity</h2>
+                <p class="text-xl text-center text-gray-300 leading-8 py-3">Give a helping hand to those in need</p>
+            </div>
+        </div>
+  
+    </section>
+
+
+    <section class="h-[800px] relative">
+      
+    </section>
+
+
+
+
+
+    <section class="py-10 md:py-40 dap-podcast">
+        <div class="md:w-4/5 mx-auto">
+            <div class="w-1/2">
+                <h3 class="text-2xl font-semibold text-brandred uppercase">Listen Now</h3>
+                <h2 class="text-4xl text-brandred font-bold uppercase">Diary of Dakuku</h2>
+                <div class="flex justify-between__ gap-x-8 mt-8">
+                    <a href="#" class="text-base hover:font-semibold">
+                        <img src="/images/spotify-icon.png" alt="" class="inline h-[40px]">
+                        <span>Spotify</span>
+                    </a>
+                    <a href="#" class="text-base hover:font-semibold">
+                        <img src="/images/Podcasts_iOS.png" alt="" class="inline h-[40px]">
+                        <span>Apple Podcast</span>
+                    </a>
+                    <a href="#" class="text-base hover:font-semibold">
+                        <img src="/images/Google_Podcasts_icon.png" alt="" class="inline h-[40px]">
+                        <span>Google Podcast</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+		// Hover function
+		const galleryImages = document.querySelectorAll('.gallery-images')
+		galleryImages.forEach((el, index, els) => {
+			el.addEventListener('mouseenter', (e) => {
+				els.forEach(d => {
+					d.classList.remove('wideview')
+					d.classList.add('slimview')
+				})
+				
+				e.target.classList.add('duration-500')
+				e.target.classList.add('transition-all')
+				e.target.classList.add('wideview')
+				e.target.classList.remove('slimview')
+			})
+			
+			// el.addEventListener('mouseleave', (e) => {})
+			
+		})
+	</script>
+
+</Main>

@@ -39,13 +39,18 @@ body {
     background-image: linear-gradient(to right, #000000c8 100%, transparent), url('/images/dap-12.jpg');
     background-position-y: 30%;
 }
+.heading-csr{
+    background-image: linear-gradient(to right, #000000c8 100%, transparent), url('/images/children-csr.png');
+    /* background-position-y: 30%; */
+}
 .meetdap,
 .dap-podcast,
 .dap-video .video,
 .heading-about,
 .heading-blog,
 .heading-contacts,
-.heading-gallery {
+.heading-gallery,
+.heading-csr {
     background-repeat: no-repeat;
     background-size: cover;
 }
