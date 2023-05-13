@@ -1,0 +1,1 @@
+const e=document.querySelector("#menuHandle"),c=document.querySelector("#hamburger"),n=document.querySelector("#closeMenu");c.onclick=()=>e.classList.remove("hidden");n.onclick=()=>e.classList.add("hidden");
