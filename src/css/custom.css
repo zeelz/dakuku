@@ -43,6 +43,21 @@ body {
     background-image: linear-gradient(to right, #000000c8 100%, transparent), url('/images/children-csr.png');
     /* background-position-y: 30%; */
 }
+.bg-csr-education {
+    background-image: linear-gradient(to right, #b31f2e85 100%, transparent), url('/images/education-csr.jpg')
+}
+.bg-csr-health {
+    background-image: linear-gradient(to right, #b31f2e85 100%, transparent), url('/images/health-csr.jpg')
+}
+.bg-csr-women {
+    background-image: linear-gradient(to right, #b31f2e85 100%, transparent), url('/images/women-csr.jpg')
+}
+.bg-csr-community {
+    background-image: linear-gradient(to right, #b31f2e85 100%, transparent), url('/images/community-csr.jpg')
+}
+.bg-csr-video {
+    background-image: linear-gradient(to right, #b31f2e85 100%, transparent), url('/images/children-csr-3.jpg')
+}
 .meetdap,
 .dap-podcast,
 .dap-video .video,
@@ -50,7 +65,12 @@ body {
 .heading-blog,
 .heading-contacts,
 .heading-gallery,
-.heading-csr {
+.heading-csr,
+.bg-csr-education,
+.bg-csr-health,
+.bg-csr-women,
+.bg-csr-community,
+.bg-csr-video {
     background-repeat: no-repeat;
     background-size: cover;
 }

@@ -21,7 +21,10 @@ module.exports = {
 		  '4xl': ['2.5rem', '2rem'],
 		  '5xl': ['3.75rem', '3rem'],
 		  '6xl': ['4rem', '3.25rem']
-		}
+		},
+		backgroundImage: {
+			// 'hero': "url('../public/images/dap-6.jpg')", #bg-hero
+		  }
 	  },
 	},
 	plugins: [
