@@ -1,0 +1,173 @@
+---
+
+---
+
+<!-- uncomment when debugging -->
+<!-- <input id="debug" type="checkbox" />
+<label for="debug">Show Debug Outlines</label> -->
+
+
+<section class="w-full scroll">
+    
+    <div class="slider md:no-slider full-bleed md:flex md:justify-center">
+        <div class="slidewrapper rounded-xl">
+            <div class="slide rounded-xl">
+                <div class="group relative overflow-hidden rounded-xl border-b border-b-4 border-b-[#ae8851] filter shadow-2xl transition-all hover:-translate-y-2">
+                    <img src="images/dap-7.jpg" alt="" class="h-[400px] md:h-auto md:grayscale group-hover:grayscale-0">
+                    <div class="absolute bottom-0 md:scale-y-0 group-hover:scale-100 origin-bottom-left transition duration-300 delay-300__ left-0 right-0 h-[100px] bg-[#ffddaa]">
+                        <p class="text-xl text-gray-900 font-semibold p-3 leading-6">Public Sector Reformer and Leadership Advocate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slidewrapper rounded-xl">
+            <div class="slide rounded-xl">
+                <div class="group relative overflow-hidden rounded-xl border-b border-b-4 border-b-[#ae8851] filter shadow-2xl transition-all hover:-translate-y-2">
+                    <img src="images/dap-10.jpg" alt="" class="h-[400px] md:h-auto md:grayscale group-hover:grayscale-0">
+                    <div class="absolute bottom-0 md:scale-y-0 group-hover:scale-100 origin-bottom-left transition duration-300 delay-300__ left-0 right-0 h-[100px] bg-[#ffddaa]">
+                        <p class="text-xl text-gray-900 font-semibold p-3 leading-6">Accomplished Scholar, Author, and Inspirational Speaker</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slidewrapper rounded-xl">
+            <div class="slide rounded-xl">
+                <div class="group relative overflow-hidden rounded-xl border-b border-b-4 border-b-[#ae8851] filter shadow-2xl transition-all hover:-translate-y-2">
+                    <img src="images/dap-6.jpg" alt="" class="h-[400px] md:h-auto md:grayscale group-hover:grayscale-0">
+                    <div class="absolute bottom-0 md:scale-y-0 group-hover:scale-100 origin-bottom-left transition duration-300 delay-300__ left-0 right-0 h-[100px] bg-[#ffddaa]">
+                        <p class="text-xl text-gray-900 font-semibold p-3 leading-6">People-Driven Public Figure Driving Infrastructure Development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+
+
+<style>
+
+:root {
+	--column-size: min(100%, 500px);
+	--slider-size: min(100%, 360px);
+	--slider-border-radius: 1rem;
+	--slider-fullbleed-gap: 40px;
+}
+
+section.scroll {
+	/* width: var(--column-size); */
+	/* max-width: var(--column-size); */
+	/* margin: 0 auto; */
+	/* min-height: 100vh; */
+	/* background: rgba(67, 179, 6, 1); */
+}
+
+.slider {
+	display: flex;
+	overflow-x: scroll;
+	scroll-snap-type: x mandatory;
+	
+	width: var(--slider-size);
+	margin: 1em auto;
+	
+	border-radius: var(--slider-border-radius);
+}
+
+.no-slider{
+    overflow-x: unset;
+    width: auto;
+    margin: 0 0 0 50%;
+}
+
+/* Hide Scrollbar itself */
+.slider {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slidewrapper {
+	scroll-snap-align: center;
+
+	/* Size me */
+	flex: 0 0 var(--slider-size);
+	width: var(--slider-size);
+	
+	/* This is needed for the paddings (in the full-bleed variant) to work …*/
+	box-sizing: content-box;
+
+	/* To allow the child .slide to stretch out inside me */
+	display: flex;
+}
+
+.slide {
+	/* Stretch me out in my .slidewrapper parent */
+	flex: 1;
+	
+	/* Give me some height */
+	min-height: 200px;
+	/* aspect-ratio: 16/9; zeelz */
+	
+	/* Center text */
+	display: grid;
+	place-content: center;
+}
+
+/* @ref https://www.bram.us/2019/04/09/breaking-elements-out-of-their-containers-in-css-with-full-bleed/ */
+.full-bleed {
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Put border-radius on the individual slides, not the slider-container */
+.slider.full-bleed {
+	border-radius: 0;
+}
+.slider.full-bleed .slide {
+	border-radius: var(--slider-border-radius);
+}
+
+/* Add a faux gap between the slidewrappers */
+.slider.full-bleed .slidewrapper {	
+	margin-right: var(--slider-fullbleed-gap);
+}
+
+/* Offset first slidewrapper from the left so that it apppears centered on load */
+.slider.full-bleed .slidewrapper:first-child {
+	padding-left: calc(50vw - (var(--slider-size) / 2));
+}
+
+/* Offset last slidewrapper so that it apppears centered when at the last item */
+/* Note that margin-right won't work …*/
+.slider.full-bleed .slidewrapper:last-child {
+	margin-right: 0;
+	padding-right: calc(50vw - (var(--slider-size) / 2));
+}
+
+
+/* Debug Outlines */
+#debug, [for="debug"] {
+	position: absolute;
+	top: 1em;
+	left: 1em;
+}
+[for="debug"] {
+	left: 2em;
+	line-height: 1em;
+}
+
+#debug:checked ~ section .slider {	
+	box-shadow: 0 0 0 4px hotpink;
+}
+#debug:checked ~ section .slidewrapper {
+	box-shadow: inset 0 0 0 4px lime;
+	background: rgb(120 255 0 / 0.2);
+}
+#debug:checked ~ section .slide {
+	box-shadow: inset 0 0 0 4px gray;
+}
+</style>
