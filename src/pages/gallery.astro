@@ -1,11 +1,12 @@
 ---
+import Podcast from "../components/Podcast.astro";
 import Main from "../layouts/main.astro";
 
 ---
 
 
 <Main>
-    <section class="heading-gallery md:py-40 relative bg-[#00000090]">
+    <section class="heading-gallery py-10 md:py-40 relative bg-[#00000090]">
         <div class="md:w-4/5 mx-auto px-10 md:px-0 md:flex justify-between">
 
             <div class="md:w-3/5 mx-auto flex flex-col justify-center item-start">
@@ -38,7 +39,7 @@ import Main from "../layouts/main.astro";
 
 
 
-    <section class="my-40 relative">
+    <section class="my-10 md:my-40 relative">
         <div class="md:w-3/4 mx-auto">     
             <div class="mx-auto">
                 <div class="-m-1 flex flex-wrap md:-m-2">
@@ -109,30 +110,7 @@ import Main from "../layouts/main.astro";
     </section>
 
 
-
-
-    <section class="py-10 md:py-40 mb-[1px] dap-podcast">
-        <div class="md:w-4/5 mx-auto">
-            <div class="w-1/2">
-                <h3 class="text-2xl font-semibold text-brandred uppercase">Listen Now</h3>
-                <h2 class="text-4xl text-brandred font-bold uppercase">Diary of Dakuku</h2>
-                <div class="flex justify-between__ gap-x-8 mt-8">
-                    <a href="#" class="text-base hover:font-semibold">
-                        <img src="/images/spotify-icon.png" alt="" class="inline h-[40px]">
-                        <span>Spotify</span>
-                    </a>
-                    <a href="#" class="text-base hover:font-semibold">
-                        <img src="/images/Podcasts_iOS.png" alt="" class="inline h-[40px]">
-                        <span>Apple Podcast</span>
-                    </a>
-                    <a href="#" class="text-base hover:font-semibold">
-                        <img src="/images/Google_Podcasts_icon.png" alt="" class="inline h-[40px]">
-                        <span>Google Podcast</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <Podcast/>
 
     <script>
 		// Hover function
