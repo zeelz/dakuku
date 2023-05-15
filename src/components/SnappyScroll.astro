@@ -7,7 +7,7 @@
 <label for="debug">Show Debug Outlines</label> -->
 
 
-<section class="w-full scroll">
+<section class="w-full scroll bg-[#ae885190] px-2 py-5 md:py-10">
     
     <div class="slider md:no-slider full-bleed md:flex md:justify-center">
         <div class="slidewrapper rounded-xl">
@@ -40,6 +40,11 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="flex justify-center gap-x-4">
+        <span class="text-[#ffddaa] text-2xl c-animate-pulse-l" aria-hidden="true">&larr;</span>
+        <span class="text-[#ffddaa] text-2xl c-animate-pulse-r" aria-hidden="true">&rarr;</span>
     </div>
     
 </section>
@@ -169,5 +174,35 @@ section.scroll {
 }
 #debug:checked ~ section .slide {
 	box-shadow: inset 0 0 0 4px gray;
+}
+
+.c-animate-pulse-l {
+    animation: pulse-left 1.75s infinite;
+}
+.c-animate-pulse-r {
+    animation: pulse-right 1.75s infinite;
+}
+
+@keyframes pulse-left {
+    0% {
+        transform: translateX(0px) 
+    }
+    75% {
+        transform: translateX(-30px) 
+    }
+    100% {
+        transform: translateX(0px) 
+    }
+}
+@keyframes pulse-right {
+    0% {
+        transform: translateX(0px) 
+    }
+    75% {
+        transform: translateX(30px) 
+    }
+    100% {
+        transform: translateX(0px) 
+    }
 }
 </style>
