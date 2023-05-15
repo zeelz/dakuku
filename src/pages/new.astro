@@ -1,0 +1,47 @@
+---
+
+const username = 'Dakuku Peterside'
+const appPwd = '2Evo BQT3 rvMY QLuw ddWI tIMn'
+const url = 'https://dakukupeterside.com/articles/wp-json/wp/v2/posts'
+const content = {
+  title: 'New Post from REST API',
+  content: 'Canada is going to be the new homee',
+  status: 'publish'
+}
+
+const options = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorisation': `Basic ${btoa(username + ':' + appPwd)}`
+  },
+  body: JSON.stringify(content)
+}
+
+async function createNewPost(){
+  const res = await fetch(url, options)
+  return await res.json()
+}
+
+createNewPost().then(data => console.log(data))
+
+
+
+// update post with curl
+// curl --user "Dakuku Peterside:2Evo BQT3 rvMY QLuw ddWI tIMn" -X POST -d "title=Our Value System, Paradise Lost???" https://dakukupeterside.com/articles/wp-json/wp/v2/posts/176
+
+
+
+// headers: {
+//     'Content-Type': 'application/json',
+//     'Authorization': 'Basic ' + btoa(username + ':' + password),
+//   },
+//   body: JSON.stringify(newArticle),
+
+
+// headers: {
+//     'Content-Type': 'application/x-www-form-urlencoded',
+//     'Authorization': 'Basic ' + Buffer.from(`${username}:${password}`).toString('base64'),
+//   }
+
+---
