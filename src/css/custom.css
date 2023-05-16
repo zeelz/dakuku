@@ -91,6 +91,7 @@ body {
 .hero-images {
     --ms-scrollbar-style: none;
     -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
 }
 .hero-images::-webkit-scrollbar {
     display: none;
@@ -102,6 +103,12 @@ body {
     position: relative;
     overflow: hidden;
     background: var(--brandred)
+}
+
+
+.slimview,
+.wideview {
+    scroll-snap-align: start;
 }
 
 .slimview > div,
