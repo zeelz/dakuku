@@ -75,13 +75,23 @@ body {
     background-size: cover;
 }
 
+.hero-images {
+    --ms-scrollbar-style: none;
+    -ms-overflow-style: none;
+}
+.hero-images::-webkit-scrollbar {
+    display: none;
+}
+
 .wideview {
-    width: 50%;
+    /* width: 50%; large screens */
+    width: 75%;
     position: relative;
     overflow: hidden;
     background: var(--brandred)
 }
 
+.slimview > div,
 .wideview > div {
     left: 0;
     background-color: var(--brandred);
@@ -91,25 +101,37 @@ body {
 }
 
 .slimview {
-    width: 25%;
+    /* width: 25%; large screens */
+    width: 75%;
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
-.slimview img {
-    height: 100%;
-    margin-left: -50%;
-    max-width: initial;
+
+
+@media (min-width: 768px) {
+
+    .wideview {width: 50%;}
+    .slimview {width: 25%;}
+    
+    .slimview > div {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        transform-origin: bottom left;
+        rotate: -90deg;
+        translate: 100% 0;
+        text-shadow: 5px 5px 20px black;
+        background-color: unset;
+        padding: 0;
+        text-align: left;
+    }
+    .slimview img {
+        height: 100%;
+        margin-left: -50%;
+        max-width: initial;
+    }
 }
 
-.slimview > div {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-    transform-origin: bottom left;
-    rotate: -90deg;
-    translate: 100% 0;
-    text-shadow: 5px 5px 20px black;
-}
 
 .blog-truncate-body__ {
     overflow:hidden;

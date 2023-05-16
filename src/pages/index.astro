@@ -27,18 +27,18 @@ import SnappyScroll from '../components/SnappyScroll.astro';
             <a href="/about" class="p-2 rounded ring-1 ring-brandred text-sm text-brandred hover:bg-brandred hover:text-white transition">More about DAP <span aria-hidden="true">&rarr;</span></a>
           </div>
   
-          <div class="hidden hero-images md:w-2/3 md:flex gap-4 h-[500px]">
-
-            <div class="slimview">
+          <div class="hero-images overflow-auto md:overflow-visible md:w-2/3 flex gap-4 h-[300px] md:h-[500px] mt-8 md:mt-0">
+            
+            <div class="slimview flex-shrink-0">
                 <img src="images/dap-1.jpg" alt="" class="">
                 <div class="absolute bottom-0 right-0 text-white font-semibold font-spacing uppercase tracking-wider">Political Strategist</div>
             </div>
 
-            <div class="wideview">
+            <div class="wideview flex-shrink-0">
                 <img src="images/dap-2.jpg" alt="" class="">
                 <div class="absolute bottom-0 right-0 text-white font-semibold font-spacing uppercase tracking-wider">Leadership Coach</div>
             </div>
-            <div class="slimview">
+            <div class="slimview flex-shrink-0">
                 <img src="images/dap-3.jpg" alt="" class="">
                 <div class="absolute bottom-0 right-0 text-white font-semibold font-spacing uppercase tracking-wider">Leadership Coach</div>
             </div>
@@ -131,22 +131,40 @@ import SnappyScroll from '../components/SnappyScroll.astro';
 
 	<script>
 		// Hover function
-		const heroImages = document.querySelectorAll('.hero-images  > div')
-		heroImages.forEach((el, index, els) => {
-			el.addEventListener('mouseenter', (e) => {
-				els.forEach(d => {
-					d.classList.remove('wideview')
-					d.classList.add('slimview')
-				})
-				
-				e.target.classList.add('duration-500')
-				e.target.classList.add('transition-all')
-				e.target.classList.add('wideview')
-				e.target.classList.remove('slimview')
-			})
-			
-			// el.addEventListener('mouseleave', (e) => {})
-			
-		})
+        function resizeOnHover () {
+            const heroImages = document.querySelectorAll('.hero-images  > div')
+            heroImages.forEach((el, index, els) => {
+                el.addEventListener('mouseenter', (e) => {
+                    els.forEach(d => {
+                        d.classList.remove('wideview')
+                        d.classList.add('slimview')
+                    })
+                    
+                    e.target.classList.add('duration-500')
+                    e.target.classList.add('transition-all')
+                    e.target.classList.add('wideview')
+                    e.target.classList.remove('slimview')
+                })
+                
+                // el.addEventListener('mouseleave', (e) => {})
+                
+            })
+        }
+
+
+        const smallDevice = window.matchMedia("(min-width: 768px)");
+        if(smallDevice.matches){
+            resizeOnHover()
+        } else {
+            console.log('no resize on hover');
+        }
+        // smallDevice.addListener(handleDeviceChange);
+
+        // function handleDeviceChange(e) {
+        // if (e.matches){
+
+        // }
+        // }
+
 	</script>
 </Main>
