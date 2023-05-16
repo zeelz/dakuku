@@ -14,6 +14,14 @@ body {
     background-position: center 35%;
 }
 
+@media (max-width: 768px) {
+    .meetdap {
+        background-image: url(/images/dap-lean-back2.jpg);
+        background-position: top!important;
+        background-size: contain!important;
+    }
+}
+
 .dap-podcast {
     background-image: url('/images/dap-8.jpg');
 }
@@ -106,8 +114,6 @@ body {
     position: relative;
     overflow: hidden;
 }
-
-
 
 @media (min-width: 768px) {
 
