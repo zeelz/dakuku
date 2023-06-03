@@ -3,8 +3,6 @@ const { title } = Astro.props;
 import '../css/custom.css'
 
 const currentLink = new URL(Astro.request.url).pathname
-console.clear()
-console.log(currentLink);
 ---
 
 <html lang="en">
@@ -39,14 +37,15 @@ console.log(currentLink);
 				<div class="hidden lg:flex ml-auto lg:gap-x-4">
 					<a href="/" class:list={['uppercase', 'font-semibold', 'leading-6', 'hover:text-brandred', {'text-brandred font-bold': currentLink === '/'}]}>Home</a>
 					<a href="/about" class:list={['uppercase', 'font-semibold', 'leading-6', 'hover:text-brandred', {'text-brandred font-bold': currentLink === '/about'}]}>Diary of Dakuku</a>
-					<a href="/corporate-social-responsibility" class:list={['uppercase', 'font-semibold', 'leading-6', 'hover:text-brandred', {'text-brandred font-bold': currentLink === '/corporate-social-responsibility'}]}>CSR</a>
+					<a href="#" class:list={['uppercase', 'font-semibold', 'leading-6', 'hover:text-brandred', {'text-brandred font-bold': currentLink === '/the-expert'}]}>The Expert</a>
+					<a href="/philanthropy" class:list={['uppercase', 'font-semibold', 'leading-6', 'hover:text-brandred', {'text-brandred font-bold': currentLink === '/philanthropy'}]}>Philanthropy</a>
 					<a href="/gallery" class:list={['uppercase', 'font-semibold', 'leading-6', 'hover:text-brandred', {'text-brandred font-bold': currentLink === '/gallery'}]}>Gallery</a>
 					<a href="/blog" class:list={['uppercase', 'font-semibold', 'leading-6', 'hover:text-brandred', {'text-brandred font-bold': currentLink === '/blog'}]}>Blog</a>
-					<a href="/contacts" class:list={['uppercase', 'font-semibold', 'leading-6', 'hover:text-brandred', {'text-brandred font-bold': currentLink === '/contacts'}]}>Contacts</a>
+					<a href="/contact" class:list={['uppercase', 'font-semibold', 'leading-6', 'hover:text-brandred', {'text-brandred font-bold': currentLink === '/contact'}]}>Contact</a>
 				</div>
 	
 				<div class="hidden lg:flex">
-				  <a href="/contacts" class="bg-brandred text-base text-white font-semibold leading-6 px-3 py-2 md:px-5 md:py-2 rounded uppercase hover:bg-transparent hover:text-brandred hover:ring-brandred hover:ring-1 hover:transition">Book DAP <span aria-hidden="true" class="">&rarr;</span></a>
+				  <a href="/book" class="bg-brandred text-base text-white font-semibold leading-6 px-3 py-2 md:px-5 md:py-2 rounded uppercase hover:bg-transparent hover:text-brandred hover:ring-brandred hover:ring-1 hover:transition">Book DAP <span aria-hidden="true" class="">&rarr;</span></a>
 				</div>
 
 				<!-- hamburger handle -->
@@ -91,7 +90,7 @@ console.log(currentLink);
 						<a href="/about" class="-mx-2 block px-3 py-6 text-base font-semibold uppercase text-gray-900 hover:bg-gray-300">Dairy of Dakuku</a>
 					  </div>
 					  <div class="py-2">
-						<a href="/corporate-social-responsibility" class="-mx-2 block px-3 py-6 text-base font-semibold uppercase text-gray-900 hover:bg-gray-300">CSR</a>
+						<a href="/philanthropy" class="-mx-2 block px-3 py-6 text-base font-semibold uppercase text-gray-900 hover:bg-gray-300">CSR</a>
 					  </div>
 					  <div class="py-2">
 						<a href="/gallery" class="-mx-2 block px-3 py-6 text-base font-semibold uppercase text-gray-900 hover:bg-gray-300">Gallery</a>
@@ -100,7 +99,7 @@ console.log(currentLink);
 						<a href="/blog" class="-mx-2 block px-3 py-6 text-base font-semibold uppercase text-gray-900 hover:bg-gray-300">Blog</a>
 					  </div>
 					  <div class="py-2">
-						<a href="/contacts" class="-mx-2 block px-3 py-6 text-base font-semibold uppercase text-gray-900 hover:bg-gray-300">Contacts</a>
+						<a href="/contact" class="-mx-2 block px-3 py-6 text-base font-semibold uppercase text-gray-900 hover:bg-gray-300">Contact</a>
 					  </div>
 
 
@@ -111,24 +110,69 @@ console.log(currentLink);
 			  
 			</header>
 		</section>
+
 		<slot />
-		<section class="p-10 md:py-20 dap-socials bg-[#ffddaa]">
-			<h3 class="text-xl lg:text-2xl font-semibold text-black text-center uppercase leading-6">Connect with DAP on social media</h3>
-			<div class="flex justify-center gap-x-4 mt-8">            
-				<a href="https://www.linkedin.com/in/dakukupeterside/" target="_blank" class="w-[50px] h-[50px] bg-brandred rounded-full p-3 hover:p-[.6rem]">
-					<img src="/images/linkedin-icon.png" alt="" class="">
-				</a>
-				<a href="https://twitter.com/PetersideDakuku" target="_blank" class="w-[50px] h-[50px] bg-brandred rounded-full p-3 hover:p-[.6rem]">
-					<img src="/images/twitter-icon.png" alt="" class="">
-				</a>
-				<a href="https://www.instagram.com/darlpside" target="_blank" class="w-[50px] h-[50px] bg-brandred rounded-full p-3 hover:p-[.6rem]">
-					<img src="/images/instagram-icon.png" alt="" class="">
-				</a>
-				<a href="https://web.facebook.com/petersidedakuku1" target="_blank" class="w-[50px] h-[50px] bg-brandred rounded-full p-3 hover:p-[.6rem]">
-					<img src="/images/facebook-icon.png" alt="" class="">
-				</a>
-			</div>
-		</section>
+
+		{currentLink === '/'?
+		<!-- if home page -->
+			<section class="p-10 md:py-20 dap-socials bg-[#ffddaa]">
+				<h3 class="text-xl lg:text-2xl font-semibold text-black text-center uppercase leading-6 pb-8">Connect with DAP on social media</h3>
+				<div class="w-4/5 mx-auto flex items-center gap-x-16">
+					<div class="w-1/2">
+						<div class="flex justify-center gap-x-8 mb-6">            
+							<a href="https://www.linkedin.com/in/dakukupeterside/" target="_blank" class="w-[100px] h-[100px] bg-brandred rounded-lg p-3 hover:p-[.6rem]">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="76px" height="76px" fill-rule="nonzero"><g transform="translate(-20.48,-20.48) scale(1.16,1.16)"><g fill="#b31f2d" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M17.65517,238.34483v-220.68966h220.68966v220.68966z" id="bgRectangle"></path></g><g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(4,4)"><path d="M23.77344,12c-10.918,0 -11.77344,0.85444 -11.77344,11.77344v16.45312c0,10.918 0.85544,11.77344 11.77344,11.77344h16.45312c10.918,0 11.77344,-0.85444 11.77344,-11.77344v-16.45312c0,-10.919 -0.85444,-11.77344 -11.77344,-11.77344zM21.16797,16h21.66406c4.793,0 5.16797,0.37497 5.16797,5.16797v21.66406c0,4.793 -0.37597,5.16797 -5.16797,5.16797h-21.66406c-4.793,0 -5.16797,-0.37597 -5.16797,-5.16797v-21.66406c0,-4.793 0.37497,-5.16797 5.16797,-5.16797zM22.50195,18.50391c-1.629,0 -2.94922,1.32027 -2.94922,2.94727c0,1.627 1.31922,2.94922 2.94922,2.94922c1.625,0 2.94531,-1.32122 2.94531,-2.94922c0,-1.625 -1.32031,-2.94727 -2.94531,-2.94727zM37.93359,26.32227c-2.46,0 -4.11016,1.34991 -4.78516,2.62891h-0.07031v-2.22266h-4.84961v16.27148h5.05273v-8.05078c0,-2.123 0.40611,-4.17773 3.03711,-4.17773c2.594,0 2.62695,2.42941 2.62695,4.31641v7.91211h5.05469v-8.92578c0,-4.382 -0.94541,-7.75195 -6.06641,-7.75195zM19.97266,26.72852v16.27148h5.05664v-16.27148z"></path></g></g></g></svg>
+							</a>
+							<a href="https://twitter.com/PetersideDakuku" target="_blank" class="w-[100px] h-[100px] bg-brandred rounded-lg p-3 hover:p-[.6rem]">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="76px" height="76px" fill-rule="nonzero"><g transform="translate(30.72,30.72) scale(0.76,0.76)"><g fill="#b31f2d" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M-40.42105,296.42105v-336.84211h336.84211v336.84211z" id="bgRectangle"></path></g><g fill="none" fill-rule="nonzero" stroke="#ffffff" stroke-width="21.33333" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M33.03542,239.72304c-9.25544,0 -16.75846,-7.50302 -16.75846,-16.75846v-189.92917c0,-9.25544 7.50302,-16.75846 16.75846,-16.75846h189.92917c9.25544,0 16.75846,7.50302 16.75846,16.75846v189.92917c0,9.25544 -7.50302,16.75846 -16.75846,16.75846z" id="shape"></path></g><g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M42,12.429c-1.323,0.586 -2.746,0.977 -4.247,1.162c1.526,-0.906 2.7,-2.351 3.251,-4.058c-1.428,0.837 -3.01,1.452 -4.693,1.776c-1.344,-1.425 -3.261,-2.309 -5.385,-2.309c-4.08,0 -7.387,3.278 -7.387,7.32c0,0.572 0.067,1.129 0.193,1.67c-6.138,-0.308 -11.582,-3.226 -15.224,-7.654c-0.64,1.082 -1,2.349 -1,3.686c0,2.541 1.301,4.778 3.285,6.096c-1.211,-0.037 -2.351,-0.374 -3.349,-0.914c0,0.022 0,0.055 0,0.086c0,3.551 2.547,6.508 5.923,7.181c-0.617,0.169 -1.269,0.263 -1.941,0.263c-0.477,0 -0.942,-0.054 -1.392,-0.135c0.94,2.902 3.667,5.023 6.898,5.086c-2.528,1.96 -5.712,3.134 -9.174,3.134c-0.598,0 -1.183,-0.034 -1.761,-0.104c3.271,2.071 7.155,3.285 11.324,3.285c13.585,0 21.017,-11.156 21.017,-20.834c0,-0.317 -0.01,-0.633 -0.025,-0.945c1.45,-1.024 2.7,-2.316 3.687,-3.792"></path></g></g></g></svg>
+							</a>
+						</div>
+						<div class="flex justify-center gap-x-8">							
+							<a href="https://www.instagram.com/darlpside" target="_blank" class="w-[100px] h-[100px] bg-brandred rounded-lg p-3 hover:p-[.6rem]">
+								<img src="/images/instagram-icon.png" alt="" class="hidden w-full">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="76px" height="76px" fill-rule="nonzero"><g transform="translate(-20.48,-20.48) scale(1.16,1.16)"><g fill="#b31f2d" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M17.65517,238.34483v-220.68966h220.68966v220.68966z" id="bgRectangle"></path></g><g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(4,4)"><path d="M31.82031,12c-18.381,0 -19.82031,1.43931 -19.82031,19.82031v0.35938c0,18.381 1.43931,19.82031 19.82031,19.82031h0.35938c18.381,0 19.82031,-1.43931 19.82031,-19.82031v-0.17969c0,-18.548 -1.452,-20 -20,-20zM28,16h8c11.129,0 12,0.871 12,12v8c0,11.129 -0.871,12 -12,12h-8c-11.129,0 -12,-0.871 -12,-12v-8c0,-11.129 0.871,-12 12,-12zM41.99414,20c-1.105,0.003 -1.99714,0.90086 -1.99414,2.00586c0.003,1.105 0.90086,1.99714 2.00586,1.99414c1.105,-0.003 1.99714,-0.90086 1.99414,-2.00586c-0.003,-1.105 -0.90086,-1.99714 -2.00586,-1.99414zM31.97656,22c-5.522,0.013 -9.98956,4.50144 -9.97656,10.02344c0.013,5.522 4.50144,9.98956 10.02344,9.97656c5.522,-0.013 9.98956,-4.50144 9.97656,-10.02344c-0.013,-5.522 -4.50144,-9.98956 -10.02344,-9.97656zM31.98633,26c3.313,-0.008 6.00567,2.67333 6.01367,5.98633c0.007,3.313 -2.67333,6.00567 -5.98633,6.01367c-3.313,0.008 -6.00567,-2.67233 -6.01367,-5.98633c-0.008,-3.313 2.67333,-6.00567 5.98633,-6.01367z"></path></g></g></g></svg>
+							</a>
+							<a href="https://web.facebook.com/petersidedakuku1" target="_blank" class="w-[100px] h-[100px] bg-brandred rounded-lg p-3 hover:p-[.6rem]">
+								<img src="/images/facebook-icon.png" alt="" class="hidden w-full">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="76px" height="76px" fill-rule="nonzero"><g transform="translate(-20.48,-20.48) scale(1.16,1.16)"><g fill="#b31f2d" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M17.65517,238.34483v-220.68966h220.68966v220.68966z" id="bgRectangle"></path></g><g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(4,4)"><path d="M23.77344,12c-10.918,0 -11.77344,0.85444 -11.77344,11.77344v16.45312c0,10.918 0.85544,11.77344 11.77344,11.77344h16.45312c10.918,0 11.77344,-0.85444 11.77344,-11.77344v-16.45312c0,-10.919 -0.85444,-11.77344 -11.77344,-11.77344zM21.16797,16h21.66406c4.793,0 5.16797,0.37497 5.16797,5.16797v21.66406c0,4.793 -0.37597,5.16797 -5.16797,5.16797h-4.21484v-11.96094h4.73633l0.74609,-5.32227h-5.48242c0,0 -0.008,-3.11753 0,-3.89453c0.016,-1.521 1.28691,-2.2903 2.37891,-2.2793c1.092,0.012 3.35352,0.00391 3.35352,0.00391v-4.90625c0,0 -1.95772,-0.25439 -4.01172,-0.27539c-1.726,-0.018 -3.63192,0.45 -5.16992,2c-1.565,1.576 -1.8118,3.92397 -1.8418,6.79297c-0.009,0.829 0,2.55664 0,2.55664h-4.63477v5.32227h4.63477v11.96289h-12.1582c-4.793,0 -5.16797,-0.37597 -5.16797,-5.16797v-21.66406c0,-4.793 0.37497,-5.16797 5.16797,-5.16797z"></path></g></g></g></svg>
+							</a>
+						</div>
+					</div>
+
+					<!-- Twitter embed -->
+					<div class="w-1/2 bg-gray-100/50 rounded-xl">
+						<a 
+							class="twitter-timeline" 
+							data-height="400" 
+							data-tweet-limit="3"
+							data-chrome="nofooter no_header noscrollbar noborders transparent"
+							href="https://twitter.com/PetersideDakuku?ref_src=twsrc%5Etfw">
+							Tweets by Dakuku
+						</a>
+					</div>
+					
+				</div>
+
+			</section>
+		:
+			<section class="p-10 md:py-20 dap-socials bg-[#ffddaa]">
+				<h3 class="text-xl lg:text-2xl font-semibold text-black text-center uppercase leading-6">Connect with DAP on social media</h3>
+				<div class="flex justify-center gap-x-4 mt-8">            
+					<a href="https://www.linkedin.com/in/dakukupeterside/" target="_blank" class="w-[50px] h-[50px] bg-brandred rounded-full p-3 hover:p-[.6rem]">
+						<img src="/images/linkedin-icon.png" alt="" class="">
+					</a>
+					<a href="https://twitter.com/PetersideDakuku" target="_blank" class="w-[50px] h-[50px] bg-brandred rounded-full p-3 hover:p-[.6rem]">
+						<img src="/images/twitter-icon.png" alt="" class="">
+					</a>
+					<a href="https://www.instagram.com/darlpside" target="_blank" class="w-[50px] h-[50px] bg-brandred rounded-full p-3 hover:p-[.6rem]">
+						<img src="/images/instagram-icon.png" alt="" class="">
+					</a>
+					<a href="https://web.facebook.com/petersidedakuku1" target="_blank" class="w-[50px] h-[50px] bg-brandred rounded-full p-3 hover:p-[.6rem]">
+						<img src="/images/facebook-icon.png" alt="" class="">
+					</a>
+				</div>
+			</section>
+		}
 	
 		<footer class="py-10 md:py-20 dap-footer bg-[#1f1f1f]">
 			<div class="w-4/5 mx-auto">
@@ -136,10 +180,11 @@ console.log(currentLink);
 					<img class="h-6 md:h-8 mr-auto" src="/images/DAP-LOGO-WHITE.png">
 					<a href="/" class="block text-center text-sm text-gray-500 uppercase hover:underline hover:transition-all">Home</a>
 					<a href="/about" class="block text-center text-sm text-gray-500 uppercase hover:underline hover:transition-all">Diary of Dakuku</a>
+					<a href="#" class="block text-center text-sm text-gray-500 uppercase hover:underline hover:transition-all">The Expert</a>
 					<a href="/gallery" class="block text-center text-sm text-gray-500 uppercase hover:underline hover:transition-all">Gallery</a>
 					<a href="/corporate-social-responsibility" class="block text-center text-sm text-gray-500 uppercase hover:underline hover:transition-all">CSR</a>
 					<a href="/blog" class="block text-center text-sm text-gray-500 uppercase hover:underline hover:transition-all">Blog</a>
-					<a href="/contacts" class="block text-center text-sm text-gray-500 uppercase hover:underline hover:transition-all">Contacts</a>
+					<a href="/contact" class="block text-center text-sm text-gray-500 uppercase hover:underline hover:transition-all">Contact</a>
 				</div>
 				<p class="text-base text-gray-500 border-t border-gray-800 py-4 text-center lg:text-left">Copyright 2023. All Rights Reversed</p>
 				
@@ -151,10 +196,22 @@ console.log(currentLink);
 	<!-- open/close menu -->
     <script>
       const menuHandle = document.querySelector('#menuHandle')
-      const hamburger = document.querySelector('#hamburger')
-      const closeMenu = document.querySelector('#closeMenu')
+      const hamburger = document.querySelector('#hamburger') as HTMLButtonElement
+      const closeMenu = document.querySelector<HTMLButtonElement>('#closeMenu') // just because why not. But let's try to be consistent here
 
       hamburger.onclick = () => menuHandle.classList.remove('hidden')
+
       closeMenu.onclick = () => menuHandle.classList.add('hidden')
+	//   closeMenu.addEventListener('click', () => menuHandle.classList.add('hidden'))
     </script>
+
+	<!-- Twitter embed -->
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+	<script>
+		setTimeout(() => {
+			const ifr = document.querySelector('#twitter-widget-0')
+			console.log(ifr);
+		}, 6000);
+	</script>
 </html>

@@ -28,7 +28,7 @@ body {
 }
 
 .dap-podcast {
-    background-image: url('/images/dap-8.jpg');
+    /* background-image: url('/images/dap-8.jpg'); */
 }
 
 .dap-video .video {
@@ -44,7 +44,7 @@ body {
     background-image: linear-gradient(to right, #000000c8 100%, transparent), url('/images/dap-blog-header.jpg');
 }
 .heading-contacts {
-    background-image: linear-gradient(to right, #000000c8 100%, transparent), url('/images/dap-11.jpeg');
+    background-image: linear-gradient(to right, #000000c8 100%, transparent), url('/images/contact_us_.jpg');
     background-position-y: 20%;
 }
 
@@ -97,15 +97,6 @@ body {
     display: none;
 }
 
-.wideview {
-    /* width: 50%; large screens */
-    width: 75%;
-    position: relative;
-    overflow: hidden;
-    background: var(--brandred)
-}
-
-
 .slimview,
 .wideview {
     scroll-snap-align: start;
@@ -126,11 +117,18 @@ body {
     position: relative;
     overflow: hidden;
 }
+.wideview {
+    /* width: 50%; large screens */
+    width: 75%;
+    position: relative;
+    overflow: hidden;
+    background: var(--brandred)
+}
 
 @media (min-width: 768px) {
 
-    .wideview {width: 50%;}
-    .slimview {width: 25%;}
+    .wideview {width: 40%;}
+    .slimview {width: 20%;}
     
     .slimview > div {
         font-size: 1.25rem;

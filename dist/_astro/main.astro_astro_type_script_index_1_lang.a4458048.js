@@ -1,0 +1,1 @@
+setTimeout(()=>{const c=document.querySelector("#twitter-widget-0");console.log(c)},6e3);const e=document.querySelector("#menuHandle"),o=document.querySelector("#hamburger"),t=document.querySelector("#closeMenu");o.onclick=()=>e.classList.remove("hidden");t.onclick=()=>e.classList.add("hidden");

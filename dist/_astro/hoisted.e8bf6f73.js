@@ -1,0 +1,1 @@
+import"./main.astro_astro_type_script_index_1_lang.a4458048.js";var e=new Glide(".glide-08",{type:"slider",focusAt:"center",perView:1,autoplay:3500,animationDuration:700,gap:0,classes:{activeNav:"[&>*]:bg-brandred"}});e.mount();
