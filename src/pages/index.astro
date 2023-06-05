@@ -6,6 +6,12 @@ import Button from '../components/Button.astro';
 import Podcast from '../components/Podcast.astro';
 import SnappyScroll from '../components/SnappyScroll.astro';
 
+const videoUris: string[] = [
+    "https://youtube.com/embed/UTSnumyNVCE",
+    "https://youtube.com/embed/aUxoolkSzR8",
+    "https://youtube.com/embed/5gAUvBXQtB0"
+]
+
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
     
@@ -163,10 +169,10 @@ import SnappyScroll from '../components/SnappyScroll.astro';
     </section> -->
 
     <!-- book glider -->
-    <section class="relative md:w-4/5 mx-auto my-10 md:my-20 book">
+    <section class="relative md:w-4/5 mx-8 md:mx-auto my-10 md:my-20 book">
         <h3 class="text-2xl font-semibold text-brandred text-center uppercase pb-8">Books by Dakuku</h3>
         <!-- Slides -->
-        <div class="overflow-hidden text-slate-500"  data-glide-el="track">
+        <div class="overflow-x-hidden text-slate-500"  data-glide-el="track">
             <ul class="relative w-full overflow-hidden p-0 whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
                 
                 <li class="md:flex">
@@ -177,7 +183,7 @@ import SnappyScroll from '../components/SnappyScroll.astro';
                         <h3 class="text-xl lg:text-2xl font-semibold uppercase leading-6">Practical Leadership Strategies in Crisis Situations</h3>
                         <h2 class="text-3xl lg:text-4xl text-brandred uppercase my-2 font-bold leading-8">Leading in the Storm</h2>
                         <p class="text-base pb-2">Explores the dynamic landscapes of various African nations, each facing a distinctive set of socio-political, economic, and environmental challenges. In it the author. - Dakuku examines the inspiring stories of leaders from diverse sectors, including politics, business, social activism, and community development. Through in-depth interviews and meticulous research, the book sheds light on the qualities and strategies that have enabled these leaders to make a positive impact amid adversity.</p>
-                        <div class="mt-6">
+                        <div class="ml-1 my-6">
                             <a href="#" target="_blank" class="hover:bg-brandred text-sm hover:text-white font-semibold leading-6 px-3 py-2 md:px-5 md:py-2 mr-2 my-4 rounded uppercase text-brandred ring-brandred ring-1 hover:transition">In stores soon <span aria-hidden="true">&rarr;</span>
                             </a>                            
                         </div>
@@ -192,7 +198,7 @@ import SnappyScroll from '../components/SnappyScroll.astro';
                         <h2 class="text-3xl lg:text-4xl text-brandred uppercase my-2 font-bold leading-8">Strategic Turnaround</h2>
                         <p class="text-base pb-2">"Strategic Turnaround is the definitive case study of the radical reform of the Nigerian Maritime Administration and Safety Agency (NIMASA), and of the entire maritime sector in Nigeria. But this story of how strategic change was initiated, instigated and successfully managed has relevance far outside Nigeria. Given Nigeria's size and NIMASA's importance, it is a key case study in successful high-level change management, and also an essential insight into the maritime sector of an emerging maritime power."</p>
                         <p class="font-semibold leading-4 italic">Chris Bellamy, <br> Professor Emeritus of Maritime Security University of Greenwich</p>
-                        <div class="mt-6">
+                        <div class="ml-1 my-6">
                             <a href="https://www.amazon.com/Strategic-Turnaround-Story-Government-Agency/dp/9785800881" target="_blank" class="bg-brandred text-sm text-white font-semibold leading-6 px-3 py-2 md:px-5 md:py-2 mr-2 my-4 rounded uppercase hover:bg-transparent hover:text-brandred hover:ring-brandred hover:ring-1 hover:transition">Buy on Amazon <span aria-hidden="true">&rarr;</span>
                             </a>
                             <a href="https://guardian.ng/art/in-strategic-turnaround-peterside-harps-on-due-diligence/" target="_blank" class="hover:bg-brandred text-sm hover:text-white font-semibold leading-6 px-3 py-2 md:px-5 md:py-2 mr-2 my-4 rounded uppercase text-brandred ring-brandred ring-1 hover:transition">Book Review <span aria-hidden="true">&rarr;</span>
@@ -211,7 +217,7 @@ import SnappyScroll from '../components/SnappyScroll.astro';
     </section>
     <!-- // book glider -->
 
-    <Podcast/>
+    <Podcast videos={videoUris}/>
 
 	<script>
 		// Hover function

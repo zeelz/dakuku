@@ -1,0 +1,30 @@
+---
+import Podcast from "../components/Podcast.astro";
+import Main from "../layouts/main.astro";
+
+const videoUris: string[] = [
+    "https://youtube.com/embed/UTSnumyNVCE",
+    "https://youtube.com/embed/aUxoolkSzR8",
+    "https://youtube.com/embed/5gAUvBXQtB0",
+    "https://youtube.com/embed/hBJmjbRsYxk",
+    "https://youtube.com/embed/uPlvBs-hhxM",
+    "https://youtube.com/embed/0ptaNr3c6A"
+]
+---
+
+
+<Main>
+    <section class="heading-contacts py-10 md:py-40 relative bg-[#00000090]">
+        <div class="md:w-4/5 mx-auto px-10 md:px-0 md:flex justify-between">
+
+            <div class="md:w-3/5 mx-auto flex flex-col justify-center item-start">
+                <h2 class="text-4xl text-center font-semibold text-white uppercase">DAP on Live TV</h2>
+                <p class="text-xl text-center text-gray-300 leading-8 py-3">Analysis, Hot takes, insights on Live TV </p>
+            </div>
+        </div>
+  
+    </section>
+
+    <Podcast videos={videoUris}/>
+
+</Main>

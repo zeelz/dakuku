@@ -1,3 +1,9 @@
+---
+const {videos} = Astro.props
+
+const currentLink = new URL(Astro.request.url).pathname
+---
+
 <section class="py-10 md:py-20 mb-1 dap-podcast">
     <!-- <div class="w-4/5 mx-auto">
         <div class="">
@@ -22,27 +28,25 @@
 
     <h3 class="text-xl lg:text-2xl font-semibold text-white text-center uppercase">DAP on live TV</h3>
 
-    <div class="w-4/5 mx-auto py-20 flex justify-center gap-x-6">
-        <div class="rounded-lg overflow-hidden">
-            <iframe src="https://youtube.com/embed/UTSnumyNVCE"
-   width="560" height="315" allowfullscreen></iframe>
-        </div>
-        <div class="rounded-lg overflow-hidden">
-            <iframe src="https://youtube.com/embed/aUxoolkSzR8"
-   width="560" height="315" allowfullscreen></iframe>
-        </div>
-        <div class="rounded-lg overflow-hidden">
-            <iframe src="https://youtube.com/embed/5gAUvBXQtB0"
-   width="560" height="315" allowfullscreen></iframe>
-        </div>
+    <div class="w-4/5 mx-auto py-10 md:py-20 md:flex flex-wrap justify-start gap-x">
+        {
+            videos.map((i:string) => (
+                <div class="md:w-1/3 rounded-lg overflow-hidden md:px-4">
+                    <iframe src={i}
+        height="315" allowfullscreen class="w-full mb-4"></iframe>
+                </div>
+            ))
+        }
+        
+    </div>
 
-        
-    </div>
-    <div class="text-center">
-        <a href="#" target="_blank" class="hover:bg-white text-sm hover:text-gray-900 font-semibold leading-6 px-4 py-3 md:px-6 md:py-4 rounded uppercase text-white ring-white ring-1 hover:transition">More Videos <span aria-hidden="true">&rarr;</span>
-        </a>
-        
-    </div>
+		{currentLink === '/' &&
+		<!-- if home page -->
+            <div class="text-center">
+                <a href="/videos" class="hover:bg-white text-sm hover:text-gray-900 font-semibold leading-6 px-4 py-3 md:px-6 md:py-4 rounded uppercase text-white ring-white ring-1 hover:transition">More Videos <span aria-hidden="true">&rarr;</span>
+                </a>
+            </div>
+        }
 </section>
 
 <style scoped>
